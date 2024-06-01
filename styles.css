@@ -1,0 +1,905 @@
+/* p3180064 - p3190295 */
+/* General Styles */
+body {
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+
+Navbar Styles 
+
+*/
+header nav {
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to left, #002244 70%, #00aaff); /* Gradient from dark to light blue */
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+#logo img {
+    height: auto; /* Maintain aspect ratio */
+    width: 30%; /* Adjust width as per requirement */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 20px;
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+    overflow: hidden; /* Ensures the pseudo-element is clipped to the anchor element's size */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: #00aaff; /* The secondary color for the underline */
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0; /* This makes the line grow from the center to the full width on hover */
+}
+
+nav ul li a:hover {
+    color: #00ccff;
+}
+
+/* Login/Sign Up Styles */
+.signUpOptions a{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.signUpOptions a:hover {
+    background-color: #ffffff;
+    color: #002244;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header nav {
+        background: linear-gradient(to top, #002244 60%, #00aaff);
+        flex-direction: column;
+        align-items: center; /* Align items to the start on small screens */
+    }
+
+    #logo img {
+        width: 70%; /* Full width logo on smaller screens */
+        margin-bottom: 10px; /* Add space below the logo */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack the menu items vertically */
+        width: 100%; /* Full width for the list */
+        align-items: center; /* Center align the list items */
+    }
+
+    nav ul li {
+        width: 25%; /* Full width list items */
+    }
+
+    nav ul li a {
+        text-align: center; /* Center the text within the links */
+        padding: 10px; /* Reduce padding for a tighter look */
+        width: 25%; /* Full width links */
+    }
+
+    header nav div {
+        width: 25%; /* Full width for the login/sign up links */
+        display: flex;
+        flex-direction: column; /* Stack the login/sign up links vertically */
+        align-items: center; /* Center align the div */
+    }
+
+    header nav div a {
+        width: calc(100% - 20px); /* Full width minus padding */
+        margin-bottom: 10px; /* Add space below each link */
+        text-align: center;
+    }
+}
+
+/*
+
+Footer Styles 
+
+*/
+footer {
+    background: linear-gradient(to right, #002244, #00aaff 70%); /* Gradient background */
+    color: #ffffff;
+    padding: 40px 20px; /* Top and bottom padding */
+    font-family: 'Arial', sans-serif; /* Consistent font with the rest of the site */
+    position: relative; /* For absolute positioning of the subtext */
+}
+
+#footer-content {
+    margin: auto; /* Center the content */
+    display: flex;
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+    justify-content: space-between; /* Space out the content */
+    align-items: flex-start; /* Align items to the start */
+    text-align: left;
+}
+
+#footer-content > div {
+    flex-basis: calc(50% - 20px); /* Adjust width minus margin */
+    margin: 10px; /* Spacing around items */
+}
+
+#footer-content h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em; /* Space between title and content */
+}
+
+#footer-content p,
+footer > p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+footer > p {
+    position: absolute; /* Position the paragraph */
+    bottom: 10px; /* From the bottom */
+    left: 20px; /* From the left */
+    font-size: 0.75em; /* Smaller font size */
+    color: #a9bcd0; /* Lighter text color for the small print */
+}
+
+#footer-content p a {
+    color: #002244;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+#footer-content p a:hover,
+#footer-content p a:focus {
+    color: #ffffff; /* White color on hover for visibility */
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    #footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #footer-content > div {
+        flex-basis: 100%; /* Full width on small screens */
+    }
+
+    footer > p {
+        position: relative; /* Relative positioning on small screens */
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        margin-top: 20px; /* Add space above the small print */
+    }
+}
+
+
+
+
+/* 
+
+Main Content Styles 
+
+*/
+.main-content {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    text-align: center; /* Center aligning the text and content */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.main-content p {
+    max-width: 75%; /* Optimal line length for readability */
+    margin: 0 auto 20px; /* Centering the paragraph with margin */
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    margin: 20px auto; /* Centering the search bar */
+    display: flex;
+    justify-content: center; /* Align search input and button */
+    gap: 10px; /* Spacing between input and button */
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    width: 60%; /* Width of the search input */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #004488; /* Theme color for the button */
+    color: #fff;
+    border-radius: 5px; /* Rounded corners for the button */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.search-bar button:hover {
+    background-color: #002244; /* Darker blue on hover */
+}
+
+/* IPhone Styles */
+.main-content img {
+    max-width: 100%; /* Responsive image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Spacing from the search bar */
+}
+
+.main-content h2 {
+    margin-top: 20px;
+    color: #002244; /* Dark blue color from the theme */
+    font-size: 1.5em;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .main-content p,
+    .search-bar input[type="text"],
+    .main-content h2 {
+        width: 90%; /* Smaller widths on mobile for better fit */
+        margin-top: 10px; /* Less spacing on mobile */
+    }
+}
+
+/* Recent Posts Section */
+.recent-posts {
+    max-width: 75%;
+    margin: 0 auto; /* Center the section */
+    padding: 20px;
+    text-align: center;
+}
+
+.recent-posts h2 {
+    color: #002244; /* Dark blue color from the theme */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.recent-posts ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    display: flex; /* Use flexbox to create a grid layout */
+    flex-wrap: wrap; /* Allow the items to wrap */
+    justify-content: space-evenly; /* Distribute space between the items */
+    gap: 10px; /* Space between the items */
+}
+
+.recent-posts li {
+    background-color: #f0f0f0; /* Light background for the items */
+    border: 2px solid #ddd; /* Border for the items */
+    border-radius: 3px; /* Rounded corners for modern look */
+    width: calc(45%); /* 2 items per row, minus the gap */
+    margin-bottom: 20px; /* Space below each item */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.recent-posts a {
+    display: block; /* Make the link fill the entire list item */
+    padding: 20px; /* Padding inside the items */
+    color: #004488; /* Theme color for the text */
+    text-decoration: none; /* Remove underline from links */
+    height: 100%; /* Ensure full height */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.recent-posts li:hover {
+    transform: translateY(-5px); /* Move the item up on hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Shadow effect for depth */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .recent-posts ul {
+        justify-content: center; /* Center items on smaller screens */
+    }
+
+    .recent-posts li {
+        width: 100%; /* Full width for a single column layout */
+    }
+}
+
+/* Featured Gadgets Section */
+
+#gadgets h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #002244; /* Dark blue color from the theme */
+    font-size: 1.5em;
+}
+
+.featured-gadgets {
+    max-width: 75%;
+    margin: 40px auto; /* Center the section */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Flex container for gadgets */
+.featured-gadgets {
+    display: flex;
+    justify-content: space-between; /* Space out the gadgets evenly */
+    flex-wrap: wrap; /* Allow the boxes to wrap */
+}
+
+.featured-gadgets .gadget {
+    flex: 0 1 calc(27%); /* Three items per row minus the margin */
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center content vertically */
+    background-color: #f8f8f8; /* Light background for the gadget */
+    padding: 20px;
+    margin-bottom: 20px; /* Space below each gadget */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.featured-gadgets .gadget:hover {
+    transform: translateY(-5px); /* Lift the gadget up on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* More pronounced shadow on hover */
+}
+
+.featured-gadgets img {
+    width: auto;
+    max-width: 300px; /* Maximum width of the image */
+    height: 230px; /* Maintain aspect ratio */
+    border-radius: 5px; /* Slightly rounded corners for the image */
+    margin-bottom: 20px; /* Space below image */
+}
+
+.featured-gadgets p {
+    color: #333;
+    text-align: justify;
+    padding: 0 10px; /* Padding on the sides of text */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .featured-gadgets {
+        justify-content: center; /* Center gadgets on smaller screens */
+    }
+    
+    .featured-gadgets .gadget {
+        /* Adjust the width for smaller screens, set to 100% minus any desired margins */
+        flex-basis: calc(100% - 40px); /* Full width minus the margin for two columns */
+        margin: 10px; /* Margin around each gadget */
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-gadgets .gadget {
+        /* Full width for single column layout */
+        flex-basis: 100%;
+        margin: 10px 0; /* Margin for top and bottom only */
+    }
+}
+
+
+/*
+
+Categories Styles
+
+*/
+.category h1 {
+    text-align: center;
+    color: #002244; /* Dark blue color from the theme */
+    margin-bottom: 30px; /* Space below the main heading */
+}
+
+.category {
+    margin-bottom: 40px; /* Space between each category section */
+}
+
+.category h2 {
+    text-align: center;
+    color: #004488; /* Lighter blue for subheadings */
+    margin-bottom: 20px; /* Space below the subheading */
+}
+
+.category img {
+    width: 100%; /* Full width images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Style for the list of subcategories */
+.category ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox to create a horizontal layout */
+    justify-content: space-around; /* Evenly space out the items */
+}
+
+.category li {
+    background-color: #e0e0e0; /* Default background color for list items */
+    flex: 1; /* Flex grow to full width */
+    padding: 20px; /* Padding inside list items */
+    text-align: center; /* Center text within list items */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+    /* cursor: pointer; */
+}
+
+.category li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Hover effect for list items */
+.category li:hover {
+    transform: scale(1.05); /* Slightly enlarge list items on hover */
+}
+
+/* Specific background colors for each subcategory */
+.category:nth-child(2) li {
+    background-color: #ffb4a2;
+}
+
+.category:nth-child(2) li:hover {
+    background-color: #f4a261;
+}
+
+.category:nth-child(3) li {
+    background-color: #ffafcc;
+}
+
+.category:nth-child(3) li:hover {
+    background-color: #f497a9;
+}
+
+.category:nth-child(4) li {
+    background-color: #c2d8ec;
+}
+
+.category:nth-child(4) li:hover {
+    background-color: #a4bbc9;
+}
+
+
+/* 
+
+Desktop & Smartphones Pages Styles
+
+*/
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #002244; /* Dark blue color from the theme */
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates a two-column layout */
+    gap: 20px; /* Space between grid items */
+    padding: 20px;
+}
+
+.product {
+    background-color: #ffffff; /* White background for the product card */
+    border: 1px solid #ddd; /* Border for the product card */
+    border-radius: 10px; /* Rounded corners for the product card */
+    padding: 20px;
+    margin-bottom: 20px; /* Space below each product card */
+}
+
+.product h2 {
+    color: #004488; /* Lighter blue for product titles */
+}
+
+.product img {
+    width: 100%; /* Full width of the column */
+    max-width: 200px; /* Maximum image width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto 10px; /* Center image and add space below */
+}
+
+.product p {
+    margin: 0 0 10px; /* Space below the paragraph */
+}
+
+.product h5 {
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 10px; /* Space below the product code */
+}
+
+.product a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #00aaff; /* Blue color matching the theme */
+    color: #ffffff; /* White text color */
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.product a:hover {
+    background-color: #0055a0; /* Darker blue on hover */
+}
+
+.product small {
+    display: block;
+    color: #999;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+}
+
+/*
+
+iPhone 15 Page Styles
+
+*/
+.iphone {
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.iphone h3 {
+    margin-top: 50px;
+}
+
+.iphone-head h1 {
+    text-align: center;
+    color: #202020;
+}
+
+.iphone-head p img {
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.iphone-head h4 {
+    font-weight: normal;
+    margin-top: 20px;
+}
+
+.iphone-head h5 {
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Description section with two columns */
+.iphone-desc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.iphone-desc-component img {
+    width: 80%;
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.iphone-desc-component p {
+    font-size: 16px;
+    color: #666;
+    padding-right: 20px;
+}
+
+/* Style the tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f8f8;
+}
+
+/* Footer information */
+.iphone pre {
+    display: block;
+    color: #999;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .iphone {
+        padding: 20px;
+    }
+
+    .iphone-desc-component {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* 
+
+About Us Page Styles 
+
+*/
+.aboutus {
+    color: #333;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center; /* Centering the content */
+}
+
+.aboutus h1 {
+    color: #000000; /* Dark blue color from the theme */
+    margin-bottom: 40px; /* Space below the main heading */
+}
+
+.aboutus h2 {
+    color: #002244; /* Lighter blue for subheadings */
+    margin-top: 40px; /* Space above the subheadings */
+}
+
+.aboutus img {
+    width: 200px; /* Adjusted width for a more appropriate size */
+    height: 200px; /* Adjusted height for a more appropriate size */
+    border-radius: 50%; /* Circular images for a modern look */
+    margin-top: 20px; /* Space above the images */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    object-fit: cover; /* Ensures the images cover the area properly */
+}
+
+.aboutus p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 20px auto; /* Vertical margin for paragraphs */
+    text-align: justify; /* Justify text for better readability */
+    max-width: 800px; /* Max width of paragraphs for optimal reading */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .aboutus img {
+        width: 150px; /* Smaller images on mobile */
+        height: 150px;
+    }
+
+    .aboutus h2 {
+        font-size: 1.5em; /* Adjust heading size on smaller screens */
+    }
+
+    .aboutus p {
+        font-size: 0.9em; /* Smaller text on mobile for better readability */
+    }
+}
+
+
+/* 
+
+Contact Page Styles 
+
+*/
+.contact-form {
+    color: #333; /* Dark text for readability */
+    max-width: 800px; /* Adjust width as needed */
+    margin: 40px auto; /* Center the form on the page with margin */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for the form area */
+    border-radius: 8px; /* Optional: Rounded corners for the form area */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow */
+}
+
+.contact-form h2 {
+    color: #002244; /* Dark blue color from the theme */
+    margin-bottom: 20px;
+}
+
+.contact-form p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555; /* Slightly lighter than the text for readability */
+}
+
+.contact-form form {
+    margin-top: 20px;
+}
+
+.contact-form label {
+    display: block; /* Ensure the label is on its own line */
+    margin: 15px 0 5px;
+    color: #002244; /* Dark blue color from the theme */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%; /* Full width inputs */
+    padding: 10px;
+    margin-bottom: 20px; /* Space between inputs */
+    border: 1px solid #ccc; /* Subtle border color */
+    border-radius: 4px; /* Slightly rounded borders for the input fields */
+}
+
+.contact-form input[type="submit"] {
+    background-color: #004488; /* Lighter blue from the theme */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Indicates the element is clickable */
+    transition: background-color 0.3s;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #002244; /* Darker blue for the submit button on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 10px;
+    }
+}
+
+
+#bodyId {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('assets/background.png');
+    background-size: cover;
+}
+
+form {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+summary {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.radios label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+input[type="tel"],
+select,
+textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background: #0070e0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0px 20px 20px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background: #0055a0;
+}
+#submitButton:disabled{
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Add space between the radio button and the label text */
+  }
+
+datalist {
+    margin-bottom: 20px;
+}
+
+/* Hover animations for radio buttons and checkboxes */
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:hover + label,
+input[type="checkbox"]:hover + label {
+    border: 1px solid #0070e0;
+}
+
+#noLegalAge, #PassError {
+    color: red;
+}

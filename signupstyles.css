@@ -1,0 +1,187 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('assets/background.png');
+    background-size: cover;
+}
+
+form {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+summary {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.radios label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+input[type="tel"],
+select,
+textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background: #0070e0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0px 20px 20px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background: #0055a0;
+}
+#submitButton:disabled{
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+}
+
+input[type="radio"] {
+    margin-right: 5px; /* Add space between the radio button and the label text */
+  }
+
+datalist {
+    margin-bottom: 20px;
+}
+
+/* Hover animations for radio buttons and checkboxes */
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:hover + label,
+input[type="checkbox"]:hover + label {
+    border: 1px solid #0070e0;
+}
+
+
+/*
+
+Footer Styles 
+
+*/
+footer {
+    background: linear-gradient(to right, #002244, #00aaff 70%); /* Gradient background */
+    color: #ffffff;
+    padding: 40px 20px; /* Top and bottom padding */
+    font-family: 'Arial', sans-serif; /* Consistent font with the rest of the site */
+    position: relative; /* For absolute positioning of the subtext */
+}
+
+#footer-content {
+    margin: auto; /* Center the content */
+    display: flex;
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+    justify-content: space-between; /* Space out the content */
+    align-items: flex-start; /* Align items to the start */
+    text-align: left;
+}
+
+#footer-content > div {
+    flex-basis: calc(50% - 20px); /* Adjust width minus margin */
+    margin: 10px; /* Spacing around items */
+}
+
+#footer-content h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em; /* Space between title and content */
+}
+
+#footer-content p,
+footer > p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 0; /* Remove bottom margin */
+}
+
+footer > p {
+    position: absolute; /* Position the paragraph */
+    bottom: 10px; /* From the bottom */
+    left: 20px; /* From the left */
+    font-size: 0.75em; /* Smaller font size */
+    color: #a9bcd0; /* Lighter text color for the small print */
+}
+
+#footer-content p a {
+    color: #002244;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+#footer-content p a:hover,
+#footer-content p a:focus {
+    color: #ffffff; /* White color on hover for visibility */
+}
+
+
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    #footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #footer-content > div {
+        flex-basis: 100%; /* Full width on small screens */
+    }
+
+    footer > p {
+        position: relative; /* Relative positioning on small screens */
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        margin-top: 20px; /* Add space above the small print */
+    }
+}

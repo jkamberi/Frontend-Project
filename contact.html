@@ -1,0 +1,70 @@
+<!-- p3180064 - p3190295-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - TechAds</title>
+    <link rel="icon" href="assets/techads3.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div id="logo">
+                <a href="index.html"><img src="assets/techads2.png" alt="Tech Ads"></a>
+            </div>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="categories.html">CATEGORIES</a></li>
+                <li><a href="aboutus.html">ABOUT US</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="signUpOptions">
+                <a href="#">Login</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="contact-form">
+        <h2>Contact Technical Support</h2>
+        <p>We understand how pivotal your ads are to your endeavors, and it's our commitment to resolve any technical glitches with swiftness and precision. As soon as you hit 'Submit', our dedicated technical support team springs into action, equipped with the expertise to ensure any issues you face are addressed promptly. There's no problem too big or too small — we're here to ensure your experience remains seamless. So, share your challenge with us, and let's swiftly turn that obstacle into a mere memory. With TechAds, you're not just using a service; you're gaining a partner who's invested in your success and peace of mind, every step of the way.</p>
+        <p>Please fill out the form below to report a problem with our service. Our technical support team will get back to you as soon as possible.</p>
+    
+        <form action="/submit-support-request" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+    
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+    
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone"><br>
+    
+            <label for="adCode">Ad Code:</label><br>
+            <input type="text" id="adCode" name="adCode" required><br>
+    
+            <label for="problemDescription">Problem Description:</label><br>
+            <textarea id="problemDescription" name="problemDescription" rows="4" required></textarea><br>
+    
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div id="footer-content">
+            <div>
+                <h3>Contact</h3>
+                <p>Email: info@techads.com</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p><a href="https://facebook.com" target="_blank">Facebook</a> | <a href="https://twitter.com/home?lang=el" target="_blank">X</a> | <a href="https://instagram.com" target="_blank">Instagram</a></p>
+            </div>
+        </div>
+        <p>© TechAds. All rights reserved</p>
+    </footer>
+</body>
+</html>

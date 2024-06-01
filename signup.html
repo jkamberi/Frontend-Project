@@ -1,0 +1,225 @@
+<!-- p3180064 - p3190295-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - TechAds</title>
+    <link rel="icon" href="assets/techads3.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="bodyId">
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div id="logo">
+                <a href="index.html"><img src="assets/techads2.png" alt="Tech Ads"></a>
+            </div>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="categories.html">CATEGORIES</a></li>
+                <li><a href="aboutus.html">ABOUT US</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="signUpOptions">
+                <a href="#">Login</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+    <form id="form" onsubmit="Recheck()" onreset="resetQuestionaire()">
+        <fieldset>
+            <legend>Sign Up</legend>
+
+            <label for="FirstName">First Name</label>
+            <input type="text" id="FirstName" name="First_Name" placeholder="James" minlength="3" maxlength="15" autocomplete="on" required>
+
+            <label for="LastName">Last Name</label>
+            <input type="text" id="LastName" name="Last_Name" placeholder="Bond" minlength="3" maxlength="15" autocomplete="on" required>
+            <br>
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" placeholder="james_Bond@gmail.com" required oninput="showEmailError()">
+            <br>
+            <label for="StreetAddress">Street Address</label>
+            <input type="text" id="StreetAddress" name="Street_Address" placeholder="Leonidou">
+
+            <label for="StreetNumber">Street Number</label>
+            <input type="number" id="StreetNumber" name="Street_Number" min="0" value="1">
+            <br>
+            <label for="DateBirth">Date Of Birth</label>
+            <input type="date" id="DateBirth" name="Date_Birth" oninput="checkAge()" required>
+            <br>
+            <span id="noLegalAge"></span>
+            <br>
+            <label for="City">City</label>
+            <input type="text" id="City" name="City" list="Cities" autocomplete="on">
+            <datalist id="Cities">
+                <option value="Athens"></option>
+                <option value="Thesalloniki"></option>
+                <option value="Patra"></option>
+                <option value="Steraia Ellada"></option>
+                <option value="Cyprus"></option>
+                <option value="Greek Islands"></option>
+                <option value="Thraki"></option>
+                <option value="Makedonia"></option>
+            </datalist>
+
+            <br>
+            <label for="HomeNumber">Home Phone Number</label>
+            <input type="tel" id="HomeNumber" name="Home_Number" pattern="[0-9]{3}-[0-9]{7}" placeholder="210-4567890">
+
+            <label for="MobileNumber">Mobile Number</label>
+            <input type="tel" id="MobileNumber" name="Mobile_Number" pattern="69[0-9]{1}-[0-9]{7}" placeholder="698-4567890">
+            <label for="PhoneType">Phone Type Preference</label>
+            <div class="radios">
+                <input type="radio" id="Home_Type" name="Phone_type_choice">
+                <label for="Home_Type">Home Phone</label>
+                <input type="radio" id="Mobile_Type" name="Phone_type_choice">
+                <label for="Mobile_Type">Mobile Phone</label>
+            </div>
+            <br>
+            <label for="PaymentMethod">Prefered Paying Method</label>
+            <input type="text" id="Card" name="Card" list="Cards" autocomplete="on">
+            <datalist id="Cards">
+                <option value="MasterCard"></option>
+                <option value="Credit Card"></option>
+                <option value="Deposit"></option>
+                <option value="Depit Card"></option>
+            </datalist>
+            <br>
+            <label for="Username">Username</label>
+            <input type="text" id="Username" name="Username" minlength="5" maxlength="20" required>
+            <br>
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password" minlength="8" maxlength="20" required>
+            <label for="ConfirmPassword">Confirm Password</label>
+            <input type="password" id="ConfirmPassword" name="Confirm_Password" minlength="8" maxlength="20" required>
+            <br>
+            <span id="PassError"></span>
+            <br>
+            <label for="AdPreference">Add Contact Preference:</label>
+            <div class="radios">
+                <input type="radio" id="SMS" name="Ad_Preference">
+                <label for="SMS">SMS</label>
+                <input type="radio" id="email" name="Ad_Preference">
+                <label for="email">Email</label>
+                <input type="radio" id="viber" name="Ad_Preference">
+                <label for="viber">Viber</label>
+                <input type="radio" id="whatsapp" name="Ad_Preference">
+                <label for="whatsapp">Whatsapp</label>    
+            </div>
+
+            <details id="detailsHere">
+                <summary>Click here to help us improve our services</summary>
+                <fieldset>
+                    <legend>Questionnaire</legend>
+                    <label for="CustomerSatisfaction">How satisfied are you with our services?</label>
+                    <div class="radios">
+                        <input type="radio" id="VeryBad" name="Satisfaction">
+                        <label for="VeryBad">I am very dissatisfied</label>
+                        <input type="radio" id="Bad" name="Satisfaction">
+                        <label for="Bad">I am dissatisfied</label>
+                        <input type="radio" id="Neutral" name="Satisfaction">
+                        <label for="Neutral">I am somewhat satisfied</label>
+                        <input type="radio" id="Good" name="Satisfaction">
+                        <label for="Good">I am satisfied</label>
+                    </div>
+                    <div class="radios">
+                        <input type="radio" id="VeryGood" name="Satisfaction">
+                        <label for="VeryGood">I am very satisfied</label>
+                        <br>
+                    </div>
+                    <label for="WebsiteReputation">Where have you found us from? (Multiple choices are available)</label>
+                    <div class="radios">
+                        <input type="checkbox" id="Facebook" name="Facebook">
+                        <label for="Facebook">Facebook</label>
+                        <input type="checkbox" id="Instagram" name="Instagram">
+                        <label for="Instagram">Instagram</label>
+                        <input type="checkbox" id="Twitter" name="Twitter">
+                        <label for="Twitter">Twitter</label>
+                        <input type="checkbox" id="Friends" name="Friends">
+                        <label for="Friends">Heard it from friends</label>
+                        <input type="checkbox" id="RandomlyFound" name="RandomlyFound">
+                        <label for="RandomlyFound">Found it by chance</label>
+                    </div>
+                    <div class="radios">
+                        <input type="checkbox" id="OtherMeans" name="OtherMeans" onchange="toggleText()">
+                        <label for="OtherMeans">Other</label>
+                        <input type="text" id="OtherMeansText" name="OtherMeansText" placeholder="Type..." maxlength="15" disabled>
+                    </div>
+                    <br>
+                    <label for="ProductCategory">Which category did you choose your product from</label>
+                    <select id="Category" name="Category">
+                        <option value="">Select an option</option>
+                        <optgroup label="Mobiles">
+                            <option value="Xiaomi">Xiaomi</option>
+                            <option value="Samsung">Samsung</option>
+                            <option value="Iphone">Iphone</option>
+                        </optgroup>
+                        <optgroup label="Desktops">
+                            <option value="Server">Servers</option>
+                            <option value="Gaming">Gaming desktops</option>
+                            <option value="Workstations">Workstations</option>
+                            <option value="Simple">Simple home use desktops</option>
+                        </optgroup>
+                        <optgroup label="Laptops">
+                            <option value="Hp">HP Laptops</option>
+                            <option value="Lenovo">Lenovo Laptops</option>
+                            <option value="Asus">Asus Laptops</option>
+                            <option value="Dell">Dell Laptops</option>
+                        </optgroup>
+                        <optgroup label="Multiple Categories">
+                            <option value="Mobiles Desktops">Mobiles and Desktops</option>
+                            <option value="Mobiles Laptops">Mobiles and Laptops</option>
+                            <option value="Desktops Laptops">Desktops and Laptops</option>
+                            <option value="Mobiles Desktops Laptops">Mobiles, Desktops and Laptops</option>
+                        </optgroup>
+                    </select>
+                    <br>
+                    <label for="Profession">What is your profession?</label>
+                    <select id="ProfessionCategory" name="ProfessionCategory">
+                        <option value="">Select an option</option>
+                        <option value="Private">Private company</option>
+                        <option value="Public">Public corporation</option>
+                        <option value="Freelancer">Freelancer</option>
+                    </select>
+                    <input type="text" id="Profession" name="Profession" maxlength="15" placeholder="Your Profession">
+                    <br>
+                    <label for="Promote">Would you tell your friends about us?</label>
+                    <div class="radios">
+                        <input type="radio" id="Yes" name="Promoting">
+                        <label for="Yes">Yes</label>
+                        <input type="radio" id="No" name="Promoting">
+                        <label for="No">No</label>
+                    </div>
+                    <br>
+                    <label for="Feedback">What do you think we could do to improve our services?</label><br>
+                    <textarea id="Feedback" name="Feedback" rows="10" cols="60" placeholder="Give us your option"></textarea>
+    
+                </fieldset>
+            </details>
+
+            <br>
+            <input type="reset" value="Reset">
+            <input type="submit" id="submitButton" value="Submit">
+        </fieldset>
+        
+    </form>
+    <script defer src="script.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <div id="footer-content">
+            <div>
+                <h3>Contact</h3>
+                <p>Email: info@techads.com</p>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <p><a href="https://facebook.com" target="_blank">Facebook</a> | <a href="https://twitter.com/home?lang=el" target="_blank">X</a> | <a href="https://instagram.com" target="_blank">Instagram</a></p>
+            </div>
+        </div>
+        <p>© TechAds. All rights reserved</p>
+    </footer>
+
+</body>
+</html>
